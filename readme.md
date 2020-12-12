@@ -1,48 +1,3 @@
-# Insta-Sign
-
-### A covid sign in extension for instagram.
-
-Insta-sign integrates directly with instagram so you do not need to sign up to any 
-covid sign in services anymore. You can just offer a qr code to sign in where you can capture peter@peterseabrook.coms and follows to your 
-profile. Or sign in directly from your profile link. If you have a menu available online you can redirect to it as well.
-
-### Installation and running
-
-As this is done as a proof of concept and an assignment for Coder Academy. This can be run locally but has no official integration 
-with instagram at all.
-
-Prerequisites is to have python 3.7+, pip and pip-env installed
-```shell script
-git clone https://github.com/petelah/insta-sign.git
-cd insta-sign
-python -m venv venv
-source venv/bin/activate
-pip3 install -r requirements.txt
-export FLASK_APP=run.py
-```
-
-### Features
-
-
-### Wireframes
-
-
-### Flowchart
-
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
-***
-***
-***
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** petelah, insta-sign, PeterSeabrook, peter@peterseabrook.com, Insta-Sign, A covid sign in extension for instagram.
--->
-
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -115,9 +70,9 @@ export FLASK_APP=run.py
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`petelah`, `insta-sign`, `PeterSeabrook`, `peter@peterseabrook.com`, `Insta-Sign`, `A covid sign in extension for instagram.`
+Insta-sign integrates directly with instagram so you do not need to sign up to any 
+covid sign in services anymore. You can just offer a qr code to sign in where you can capture peter@peterseabrook.coms and follows to your 
+profile. Or sign in directly from your profile link. If you have a menu available online you can redirect to it as well.
 
 
 ### Built With
@@ -216,14 +171,14 @@ Project Link: [https://github.com/petelah/insta-sign](https://github.com/petelah
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/petelah/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/petelah/repo/graphs/contributors
+[contributors-url]: https://github.com/petelah/insta-sign/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/petelah/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/petelah/repo/network/members
+[forks-url]: https://github.com/petelah/insta-sign/network/members
 [stars-shield]: https://img.shields.io/github/stars/petelah/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/petelah/repo/stargazers
+[stars-url]: https://github.com/petelah/insta-sign/stargazers
 [issues-shield]: https://img.shields.io/github/issues/petelah/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/petelah/repo/issues
+[issues-url]: https://github.com/petelah/insta-sign/issues
 [license-shield]: https://img.shields.io/github/license/petelah/repo.svg?style=for-the-badge
-[license-url]: https://github.com/petelah/repo/blob/master/LICENSE.txt
+[license-url]: https://github.com/petelah/insta-sign/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/peter-seabrook-0b03bb181
