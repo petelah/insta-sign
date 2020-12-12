@@ -68,18 +68,18 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](src/static/images/screenshot.png)
+![Main Screenshot](src/static/images/screenshot.png)
 
 Insta-sign integrates directly with instagram so you do not need to sign up to any 
-covid sign in services anymore. You can just offer a qr code to sign in where you can capture peter@peterseabrook.coms and follows to your 
+covid sign in services anymore. You can just offer a qr code to sign in where you can capture emails and follows to your 
 profile. Or sign in directly from your profile link. If you have a menu available online you can redirect to it as well.
 
 
 ### Built With
 
-* []()
-* []()
-* []()
+* [Python]()
+* [Flask]()
+* [Bootstrap]()
 
 
 
