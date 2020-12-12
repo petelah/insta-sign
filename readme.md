@@ -123,23 +123,21 @@ Open your browser to http://127.0.0.1:5000
 <!-- FEATURES -->
 ## Features
 
-See the [open issues](https://github.com/petelah/insta-sign/issues) for a list of proposed features (and known issues).
+* F1
+* F2
+* F3
 
 
 
 <!-- WW -->
 ## Wireframes & Workflow
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Wireframes go here
 
 <!-- CLOUDARCH -->
 ## Cloud Architecture
+
+Cloud architecture diagrams go here
 
 <!-- LICENSE -->
 ## License
@@ -160,9 +158,10 @@ Project Link: [https://github.com/petelah/insta-sign](https://github.com/petelah
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* []()
-* []()
-* []()
+* [Coder Academy]()
+* [Bruce McClure]()
+* [Garret Blankenship]()
+* [Jamal Diab]()
 
 
 
@@ -181,4 +180,4 @@ Project Link: [https://github.com/petelah/insta-sign](https://github.com/petelah
 [license-shield]: https://img.shields.io/github/license/petelah/repo.svg?style=for-the-badge
 [license-url]: https://github.com/petelah/insta-sign/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/peter-seabrook-0b03bb181
+[linkedin-url]: https://linkedin.com/in/peter-seabrook-0b03bb181/
