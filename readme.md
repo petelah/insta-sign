@@ -65,8 +65,9 @@
 </details>
 
 
-
+<div id="about-the-project"></div>
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 ![Main Screenshot](src/static/images/screenshot.png)
@@ -75,6 +76,7 @@ Insta-sign integrates directly with instagram so you do not need to sign up to a
 covid sign in services anymore. You can just offer a qr code to sign in where you can capture emails and follows to your 
 profile. Or sign in directly from your profile link. If you have a menu available online you can redirect to it as well.
 
+<div id="built-with"></div>
 
 ### Built With
 
@@ -83,16 +85,22 @@ profile. Or sign in directly from your profile link. If you have a menu availabl
 * [Bootstrap]()
 
 
-
+<div id="getting-started"></div>
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 As this is done as a proof of concept and an assignment for Coder Academy. This can be run locally but has no official integration 
 with instagram at all.
 
+
+<div id="prerequisites"></div>
+
 ### Prerequisites
 
 Prerequisites is to have python 3.7+, pip and pip-env installed
+
+<div id="installation"></div>
 
 ### Installation
 
@@ -108,6 +116,8 @@ export FLASK_APP=run.py
 
 
 <!-- USAGE EXAMPLES -->
+<div id="usage"></div>
+
 ## Usage
 
 As this is done as a proof of concept and an assignment for Coder Academy. This can be run locally but has no official integration 
@@ -122,6 +132,8 @@ Open your browser to http://127.0.0.1:5000
 
 
 <!-- FEATURES -->
+<div id="features"></div>
+
 ## Features
 
 * Sign in with instagram or facebook account
@@ -132,17 +144,23 @@ Open your browser to http://127.0.0.1:5000
 
 
 <!-- WW -->
+<div id="wireframes"></div>
+
 ## Wireframes & Workflow
 
 Wireframes
 ![ERD](docs/images/ERD.png)
 
 <!-- CLOUDARCH -->
+<div id="cloudarch"></div>
+
 ## Cloud Architecture
 
 Cloud architecture diagrams go here
 
 <!-- LICENSE -->
+<div id="license"></div>
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
@@ -161,6 +179,8 @@ Project Link: [https://github.com/petelah/insta-sign](https://github.com/petelah
 
 
 <!-- ACKNOWLEDGEMENTS -->
+<div id="acknowledgements"></div>
+
 ## Acknowledgements
 
 * [Coder Academy]()
