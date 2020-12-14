@@ -151,13 +151,27 @@ Open your browser to http://127.0.0.1:5000
 
 ## Wireframes & Workflow
 
-Wireframes
+#### Wireframes
+Login:
+![login_wf](docs/images/login_wf.png)
+Feed:
+![feed_wf](docs/images/feed_wf.png)
+Profile:
+![profile_wf](docs/images/profile_wf.png)
+Sign In:
+![sign_in_wf](docs/images/sign_in_wf.png)
+
+Entity relationship Diagram:
 ![ERD](docs/images/ERD.png)
 
 <!-- DEPLOYMENT -->
 <div id="deployment"></div>
 
 ## Deployment
+
+CI/CD is handled with GitHub actions.
+
+The initial push to dev branch will execute tests and syntax linting
 
 <!-- CLOUDARCH -->
 <div id="cloudarch"></div>
