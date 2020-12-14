@@ -77,6 +77,8 @@ Insta-sign integrates directly with instagram so you do not need to sign up to a
 covid sign in services anymore. You can just offer a qr code to sign in where you can capture emails and follows to your 
 profile. Or sign in directly from your profile link. If you have a menu available online you can redirect to it as well.
 
+Integration is as easy as enabling it if you hold a business account and your business is verified.
+
 <div id="built-with"></div>
 
 ### Built With
