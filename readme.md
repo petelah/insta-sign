@@ -57,6 +57,7 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#wireframes">Wireframes & Workflow</a></li>
+    <li><a href="#deployment">Deployment</a></li>
     <li><a href="#arch">Cloud Architecture</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -151,12 +152,20 @@ Open your browser to http://127.0.0.1:5000
 Wireframes
 ![ERD](docs/images/ERD.png)
 
+<!-- DEPLOYMENT -->
+<div id="deployment"></div>
+
+## Deployment
+
 <!-- CLOUDARCH -->
 <div id="cloudarch"></div>
 
 ## Cloud Architecture
 
-Cloud architecture diagrams go here
+cloud architecture would be extremely simple for this add on. The following diagram has the example running in it's own aws region for 
+proof of concept purposes. However in the real world this would integrate straight into instagrams existing architecture.
+
+![ERD](docs/images/cloudarch.png)
 
 <!-- LICENSE -->
 <div id="license"></div>
