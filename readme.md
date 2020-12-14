@@ -55,8 +55,9 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#wireframes">Wireframes & Workflow</a></li>
+    <li><a href="#arch">Cloud Architecture</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -123,16 +124,18 @@ Open your browser to http://127.0.0.1:5000
 <!-- FEATURES -->
 ## Features
 
-* F1
-* F2
-* F3
+* Sign in with instagram or facebook account
+* Auto generate qr codes
+* Gain followers
+* Capture emails for future marketing
 
 
 
 <!-- WW -->
 ## Wireframes & Workflow
 
-Wireframes go here
+Wireframes
+![ERD](docs/images/ERD.png)
 
 <!-- CLOUDARCH -->
 ## Cloud Architecture
@@ -147,6 +150,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 <!-- CONTACT -->
+<div id="contact"></div>
 ## Contact
 
 Peter Seabrook - [@PeterSeabrook](https://twitter.com/PeterSeabrook) - peter@peterseabrook.com

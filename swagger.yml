@@ -1,0 +1,15 @@
+openapi: '3.0.2'
+info:
+  title: Insta-Sign
+  version: 1a
+paths:
+  /register/:
+    post:
+      tags:
+        - "Register"
+      summary: "Register Account"
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Account Already
