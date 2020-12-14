@@ -152,20 +152,20 @@ Open your browser to http://127.0.0.1:5000
 ## Wireframes & Workflow
 
 ### Wireframes
-####Login:
+#### Login:
 
 ![login_wf](docs/images/login_wf.png)
-####Feed:
+#### Feed:
 
 ![feed_wf](docs/images/feed_wf.png)
-####Profile:
+#### Profile:
 
 ![profile_wf](docs/images/profile_wf.png)
-####Sign In:
+#### Sign In:
 
 ![sign_in_wf](docs/images/sign_in_wf.png)
 
-####Entity relationship Diagram:
+#### Entity relationship Diagram:
 
 ![ERD](docs/images/ERD.png)
 
