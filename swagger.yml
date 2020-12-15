@@ -1,15 +1,279 @@
 openapi: '3.0.2'
 info:
   title: Insta-Sign
-  version: 1a
+  version: 0.1a
 paths:
-  /register/:
+  /api/register/:
     post:
       tags:
-        - "Register"
+        - "User Authentication"
       summary: "Register Account"
       responses:
         '200':
           description: OK
         '400':
           description: Account Already
+  
+  /api/login/:
+    post:
+      description: User login. Takes in a post request with username/email and password
+      tags:
+        - "User Authentication"
+      summary: "Account login"
+      responses:
+        '200':
+          description: OK, JWT login token issued
+          content: 
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: No acccount found
+        '401':
+          description: Authentication error
+      
+
+  /api/profile/{username}:
+    get:
+      description: Displays user profile based on username input. Populates the browser with their prolfile info and pictures.
+      tags:
+        - "User Profile"
+      summary: "Displays user profile"
+      parameters:
+        - name: username
+          in: path
+          description: Username
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: User does not exist
+
+  /api/profile/{username}/sign_in/:
+    get:
+      description: Takes use to covid sign in page if they have a business account verified.
+      tags:
+        - "User Profile"
+      summary: "Guest sign in"
+      parameters:
+        - name: username
+          in: path
+          description: Username
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Business has not been verified
+
+  /api/profile/{username}/settings/:
+    get:
+      description: User settings page where they can change their account info.
+      tags:
+        - "User Profile"
+      summary: "Users settings page"
+      parameters:
+        - name: username
+          in: path
+          description: Username
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Not authenticated
+      security:
+        - bearerAuth: []
+    put:
+      description: User settings page where they can change their account info.
+      tags:
+        - "User Profile"
+      summary: "Update user settings"
+      parameters:
+        - name: username
+          in: path
+          description: Username
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Not authenticated
+      security:
+        - bearerAuth: []
+
+  /api/profile/{username}/follow/:
+    patch:
+      description: Follow another users posts to display them in your feed.
+      tags:
+        - "User Profile"
+      summary: "Follow user"
+      parameters:
+        - name: username
+          in: path
+          description: Username
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Already following
+      security:
+        - bearerAuth: []
+
+  /api/profile/{username}/unfollow/:
+    patch:
+      description: Follow another users posts to display them in your feed.
+      tags:
+        - "User Profile"
+      summary: "Follow user"
+      parameters:
+        - name: username
+          in: path
+          description: Username
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Already unfollowed
+      security:
+        - bearerAuth: []
+
+  /api/posts/{id}/:
+    get:
+      description: Displays the specific post attached to the corresponding id.
+      tags:
+        - "Posts"
+      summary: "A single user post"
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: No post found
+
+  /api/posts/{id}/edit/:
+    get:
+      description: Grabs the post for the user to edit and populates the text boxes.
+      tags:
+        - "Posts"
+      summary: "Edit post"
+      parameters:
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not authorized
+        '403':
+          description: You do not own this content
+      security:
+        - bearerAuth: []
+
+    put:
+      description: Updates the post information from the edit page.
+      tags:
+        - "Posts"
+      summary: "Update post"
+      parameters:
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not authorized
+        '403':
+          description: You do not own this content
+      security:
+        - bearerAuth: []
+
+  /api/new_post/:
+    post:
+      description: Creates a new post if the user is logged in.
+      tags:
+        - "Posts"
+      summary: "Create post"
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not authorized
+        '403':
+          description: You do not own this content
+      security:
+        - bearerAuth: []
+
+  /api/posts/{id}/delete_post/:
+    delete:
+      description: Deletes a new post if the user is logged in.
+      tags:
+        - "Posts"
+      summary: "Delete post"
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not authorized
+        '403':
+          description: You do not own this content
+      security:
+        - bearerAuth: []
+
+  /api/admin/dump:
+    post:
+      description: Admin privileges to dump the entire database to JSON
+      tags:
+        - "Admin"
+      summary: "Dump database"
+      responses:
+        '200':
+          description: OK, JWT login token issued
+          content: 
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: No acccount found
+        '401':
+          description: Authentication error
+      security:
+        - bearerAuth: []
+
+  
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

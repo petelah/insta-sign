@@ -1,5 +1,6 @@
 from main import db
-from models.BookImage import BookImage
+from src.models.BookImage import BookImage
+
 
 class Book(db.Model):
     __tablename__ = "books"

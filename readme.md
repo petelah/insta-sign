@@ -187,7 +187,7 @@ it will be torn down, rebuilt and started as a system service.
 
 ## Cloud Architecture
 
-cloud architecture would be extremely simple for this add on. The following diagram has the example running in it's own aws region for 
+Cloud architecture would be extremely simple for this add on. The following diagram has the example running in it's own aws region for 
 proof of concept purposes. However in the real world this would integrate straight into instagrams existing architecture.
 
 ![ERD](docs/images/cloudarch.png)
