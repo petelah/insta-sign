@@ -34,7 +34,7 @@ def auth_login():
     if not user or not bcrypt.check_password_hash(user.password, user_fields["password"]):
         return abort(401, description="Incorrect username and password")
 
-    expiry =  timedelta(days=1)
+    expiry = timedelta(days=1)
     access_token = create_access_token(identity=str(user.id), expires_delta=expiry)
     
     return jsonify({ "token": access_token })
