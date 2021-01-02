@@ -119,7 +119,7 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 export FLASK_APP=run.py
 ```
-
+Rename the .env.example file to .env and fill in your environment variables.
 
 
 <!-- USAGE EXAMPLES -->
