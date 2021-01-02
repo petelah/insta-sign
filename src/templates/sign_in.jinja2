@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="login-page">
+            <form method="POST" action="" class="login-form">
+                <h2>Update Account</h2>
+                {{ form.hidden_tag() }}
+                {% if form.email.errors %}
+                    {{ form.email(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form") }}
+                {% endif %}
+
+                {% if form.name.errors %}
+                    {{ form.name(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.name(class="form") }}
+                {% endif %}
+
+                <div class="form-separator">
+                    {{ form.symptoms.label(class="checkbox-label") }}
+                    {{ form.symptoms(class="") }}
+                </div>
+                <div class="form-separator">
+                {{ form.sign_up.label(class="checkbox-label") }}
+                {{ form.sign_up(checked=True, class="") }}
+                </div>
+            {% if current_user.is_authenticated %}
+                <div class="form-separator">
+                {{ form.follow.label(class="checkbox-label") }}
+                {{ form.follow(class="") }}
+                </div>
+            {% endif %}
+
+              {{ form.submit(class="form-button") }}
+              <p class="message">Your data is protected under Australian data privacy laws.</p>
+            </form>
+          </div>
+        </div>
+    </div>
+{% endblock content %}

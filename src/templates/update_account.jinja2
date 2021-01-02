@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="login-page">
+            <form method="POST" action="" enctype="multipart/form-data" class="login-form">
+                <h2>Update Account</h2>
+                {{ form.hidden_tag() }}
+                {% if form.email.errors %}
+                    {{ form.email(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form") }}
+                {% endif %}
+
+                {% if form.username.errors %}
+                    {{ form.username(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username(class="form") }}
+                {% endif %}
+
+                {% if form.first_name.errors %}
+                    {{ form.first_name(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.first_name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.first_name(class="form") }}
+                {% endif %}
+
+                {% if form.last_name.errors %}
+                    {{ form.last_name(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.last_name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.last_name(class="form") }}
+                {% endif %}
+
+                {% if form.bio.errors %}
+                    {{ form.bio(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.bio.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.bio(class="form") }}
+                {% endif %}
+
+                {% if form.profile_picture.errors %}
+                    {{ form.profile_picture(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.profile_picture.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.profile_picture(class="form") }}
+                {% endif %}
+
+
+              {{ form.submit(class="form-button") }}
+              <p class="message">Already have an account? <a href="{{ url_for('auth_view.login') }}">Sign In</a></p>
+            {% if not current_user.business.verfied %}
+                <p class="message">Need a business account? <a href="{{ url_for('profile_view.business_register', username=current_user.username) }}">Register</a></p>
+            {% endif %}
+            </form>
+          </div>
+        </div>
+    </div>
+{% endblock content %}

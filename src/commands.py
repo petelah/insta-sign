@@ -1,7 +1,14 @@
-from main import db
+from src import db
 from flask import Blueprint
 
 db_commands = Blueprint("db-custom", __name__)
+
+
+@db_commands.cli.command("create")
+def create_db():
+    db.create_all()
+    print("DB Created")
+
 
 @db_commands.cli.command("drop")
 def drop_db():
@@ -9,31 +16,87 @@ def drop_db():
     db.engine.execute("DROP TABLE IF EXISTS alembic_version;")
     print("Tables deleted")
 
+
 @db_commands.cli.command("seed")
 def seed_db():
-    from models.Book import Book
-    from models.User import User
-    from main import bcrypt
+    from src.models.User import User
+    from src.models.Posts import Posts
+    from src.models.Business import Business
+    from src.models.Comments import Comments
+    from src.models.SignIn import SignIn
+    from src import bcrypt
     from faker import Faker
     import random
 
     faker = Faker()
     users = []
+    businesses = []
+    posts = []
 
     for i in range(5):
+
+        # Add users
         user = User()
-        user.email =  f"test{i}@test.com"
+        user.email = f"test{i}@test.com"
+        user.bio = faker.paragraph(nb_sentences=3)
+        user.username = f"test{i}"
+        user.f_name = faker.first_name()
+        user.l_name = faker.last_name()
         user.password = bcrypt.generate_password_hash("123456").decode("utf-8")
+
+        # Add businesses
+        business = Business()
+        business.email = user.email
+        business.business_name = faker.bs()
+        business.address = f"{i} test St"
+        business.state = "NSW"
+        business.post_code = f"123{i}"
+        business.country = "Australia"
+        business.sign_in_enabled = True
+        business.verified = True
+        business.user = user
+
         db.session.add(user)
         users.append(user)
+        businesses.append(business)
+        db.session.add(business)
     
     db.session.commit()
+    print("Users Added")
 
     for i in range(20):
-        book = Book()
-        book.title = faker.catch_phrase()
-        book.user_id = random.choice(users).id
-        db.session.add(book)
+        post = Posts()
+        post.filename = f"{random.randrange(1,15)}.jpg"
+        post.content = faker.paragraph(nb_sentences=3)
+        post.user_id = random.choice(users).id
+        posts.append(post)
+        db.session.add(post)
     
     db.session.commit()
+    print("Posts added")
+
+    for i in range(100):
+        comment = Comments()
+        comment.content = faker.paragraph(nb_sentences=2)
+        comment.username = random.choice(users).username
+        comment.post_id = random.choice(posts).id
+
+        db.session.add(comment)
+
+    db.session.commit()
+    print("Posts added")
+
+    for i in range(350):
+        sign_in = SignIn()
+        sign_in.email = f"test{i}@test.com"
+        sign_in.name = f"test_name{i}"
+        sign_in.symptoms = True
+        sign_in.follow = True
+        sign_in.signup = True
+        sign_in.business_id = random.choice(businesses).id
+        db.session.add(sign_in)
+
+    db.session.commit()
+
+    print("Sign in's added")
     print("Tables seeded")

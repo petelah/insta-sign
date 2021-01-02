@@ -78,6 +78,11 @@ profile. Or sign in directly from your profile link. If you have a menu availabl
 
 Integration is as easy as enabling it if you hold a business account and your business is verified.
 
+This has been designed to run both the front end and back end API on the same server.
+
+Users are authenticated on the front end using sessions via flask-login and the API will server users with JWT's so
+it is easily integrable with any mobile app framework as well.
+
 <div id="built-with"></div>
 
 ### Built With
@@ -125,11 +130,23 @@ export FLASK_APP=run.py
 As this is done as a proof of concept and an assignment for Coder Academy. This can be run locally but has no official integration 
 with instagram at all.
 
+Setup the db:
+```sh
+flask db-custom create
+```
+
+If you wish to have test users run:
+```sh
+flask db-custom seed
+```
+
 ```sh
 flask run
 ```
 
-Open your browser to http://127.0.0.1:5000
+Open your browser to http://127.0.0.1:5000/
+
+or you can test the rest API endpoints with the swagger file provided in docs/ folder.
 
 
 
@@ -139,10 +156,10 @@ Open your browser to http://127.0.0.1:5000
 ## Features
 
 * Sign in with instagram or facebook account
-* Auto generate qr codes
-* Gain followers
+* Auto generate qr codes - coming soon
+* Gain followers when people sign into your venue or business
 * Capture emails for future marketing
-
+* Admin panel for approving businesses and dumping the db
 
 
 <!-- WW -->
@@ -168,6 +185,26 @@ Open your browser to http://127.0.0.1:5000
 
 ![ERD](docs/images/ERD.png)
 
+## Constraints
+
+#### User constraints:
+* Constraints placed on the user by restricting access to the admin panel and routes. 
+* Access is granted and revoked via front end using sessions and API via JWT. 
+* Users cannot edit other users profiles, and a user cannot verify their own business or another users business, only an admin can do that.
+* A user can have only one business account only.
+* A user can like another users post
+* A user can follow and unfollow another user
+* A user can create and delete their own posts
+* A user can comment on another users post
+
+
+#### Business constraints:
+* A Business cannot accept any sign in's unless the business is approved by an admin. Once approved they can only access user data that have the user has opted to give them.
+
+
+#### Anonymous users:
+* Anonymous or unregistered users have the ability to view profiles and sign in, they have no other access to endpoints.
+
 <!-- DEPLOYMENT -->
 <div id="deployment"></div>
 
@@ -188,7 +225,7 @@ it will be torn down, rebuilt and started as a system service.
 ## Cloud Architecture
 
 Cloud architecture would be extremely simple for this add on. The following diagram has the example running in it's own aws region for 
-proof of concept purposes. However in the real world this would integrate straight into instagrams existing architecture.
+proof of concept purposes. However in the real world this would integrate straight into Instagram's existing architecture.
 
 ![ERD](docs/images/cloudarch.png)
 
@@ -221,6 +258,8 @@ Project Link: [https://github.com/petelah/insta-sign](https://github.com/petelah
 * [Bruce McClure]()
 * [Garret Blankenship]()
 * [Jamal Diab]()
+* [Aigars Silkalns](https://codepen.io/colorlib/pen/rxddKy) - Amazing HTML5 & CSS forms
+* [George W. Park](https://codepen.io/GeorgePark/pen/VXrwOP) - Instagram UI
 
 
 

@@ -9,3 +9,5 @@ __pycache__
 .DS_Store
 src/migrations
 docs/Insta-Sign.bmpr
+.aws
+src/instasign.db

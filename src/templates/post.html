@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="profile-user-settings">
+            <a href="{{ url_for('main_view.profile', username=username) }}" class="btn profile-settings-btn" aria-label="Go back"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+            {% if logged_user %}
+				<button class="btn profile-edit-btn">Edit Post</button>
+                <a href="{{ url_for('profile_view.delete_post', username=current_user.username, id=post.id) }}" class="btn profile-settings-btn" aria-label="Delete post"><i class="fas fa-trash" aria-hidden="true"></i></a>
+            {% endif %}
+			</div>
+    </div>
+    <div class="container">
+        <section class="post-image">
+            <img src="{{ url_for('static', filename='images/dummy/'+post.filename) }}" alt="">
+        </section>
+        <section class="post-content">
+            <div class="profile-bio comment-line">
+
+				<p><span class="profile-real-name">{{ post.content }}</span></p>
+
+			</div>
+        </section>
+        <section class="post-comments">
+            {% for comment in post.comments %}
+                <div class="profile-bio comment-line">
+
+				<p><span class="profile-real-name">{{ comment.username }}</span>  {{ comment.content }}</p>
+
+			</div>
+            {% endfor %}
+        </section>
+    {% if current_user.is_authenticated %}
+        <section class="input-comment">
+            <form method="POST" action="" class="comment">
+                {{ form.hidden_tag() }}
+                {% if form.content.errors %}
+                    {{ form.content(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="form") }}
+                {% endif %}
+
+                {{ form.submit(class="form-button") }}
+            </form>
+        </section>
+    {% endif %}
+    </div>
+{% endblock content %}

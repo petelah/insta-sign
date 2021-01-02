@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="login-page">
+            <form method="POST" action="" class="login-form">
+                <h2>Login</h2>
+                {{ form.hidden_tag() }}
+                {% if form.email.errors %}
+                    {{ form.email(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form") }}
+                {% endif %}
+                {% if form.password.errors %}
+                    {{ form.password(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="form") }}
+                {% endif %}
+{#            <div class="form-group">#}
+{#                {{ form.remember(class="form-check-input") }}#}
+{#                {{ form.remember.label(class="form-check-label") }}#}
+{#            </div>#}
+              {{ form.submit(class="form-button") }}
+              <p class="message">Not registered? <a href="#">Create an account</a></p>
+            </form>
+          </div>
+        </div>
+    </div>
+{% endblock content %}

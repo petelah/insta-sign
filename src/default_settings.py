@@ -1,8 +1,12 @@
 import os
 
+
 class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     JWT_SECRET_KEY = "duck"
+    SECRET_KEY = "duck"
+    S3_FOLDER = 'src/static/images/dummy'
+    TEST_PASSWORD = '123456'
 
     MAX_CONTENT_LENGTH = 1 * 1024 * 1024
 
@@ -42,8 +46,11 @@ class Config(object):
 
         return value
 
+
+
 class DevelopmentConfig(Config):
     DEBUG = True
+
 
 class ProductionConfig(Config):
     @property
@@ -58,6 +65,7 @@ class ProductionConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
+
 
 environment = os.environ.get("FLASK_ENV")
 

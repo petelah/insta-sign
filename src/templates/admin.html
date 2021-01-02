@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+<main>
+    <div class="container">
+
+		<div class="profile">
+
+			<div class="profile-image">
+
+				<img src="{{ url_for('static', filename='images/dummy/' + current_user.profile_picture) }}" alt="">
+
+			</div>
+
+			<div class="profile-user-settings">
+
+				<h1 class="profile-user-name">{{ current_user.username }}</h1>
+				<a href="{{ url_for('admin_view.dump', username=current_user.username) }}" class="btn profile-edit-btn">Dump DB</a>
+			</div>
+
+			<div class="profile-stats">
+
+				<ul>
+					<li><span class="profile-stat-count">{{ businesses|length }}</span> Unverified Businesses</li>
+					<li><span class="profile-stat-count">{{ sc }}</span> Sign Ins</li>
+				</ul>
+
+			</div>
+
+			<div class="profile-bio">
+
+				<p><span class="profile-real-name">{{ current_user.f_name }} {{ current_user.l_name }}</span>  {{ current_user.bio }}</p>
+
+			</div>
+
+		</div>
+		<!-- End of profile section -->
+
+	</div>
+	<!-- End of container -->
+
+	<div class="container">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Business Name</th>
+              <th>Approve</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for b in businesses %}
+            <tr>
+              <td>{{ b.business_name }}</td>
+                <td class="approve"><a href="{{ url_for('admin_view.approve', business_name=b.business_name) }}" class="btn profile-settings-btn"><i class="fas fa-check" aria-hidden="true"></i></a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+		<!-- End of table -->
+
+	</div>
+	<!-- End of container -->
+
+</main>
+{% endblock content %}

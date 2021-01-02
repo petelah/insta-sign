@@ -2,8 +2,23 @@ openapi: '3.0.2'
 info:
   title: Insta-Sign
   version: 0.1a
+
+servers:
+  - url: http://127.0.0.1:5000
+    variables:
+      username:
+        default: Test0
+        description: Test username
+      email:
+        default: test0@test.com
+        description: Test user email
+      password:
+        default: 123456
+        description: Test user password
+
+
 paths:
-  /api/register/:
+  /api/auth/register:
     post:
       tags:
         - "User Authentication"
@@ -14,7 +29,7 @@ paths:
         '400':
           description: Account Already
   
-  /api/login/:
+  /api/auth/login:
     post:
       description: User login. Takes in a post request with username/email and password
       tags:
@@ -52,9 +67,9 @@ paths:
         '400':
           description: User does not exist
 
-  /api/profile/{username}/sign_in/:
-    get:
-      description: Takes use to covid sign in page if they have a business account verified.
+  /api/profile/{username}/sign_in:
+    post:
+      description: Takes a covid sign in if they have a business account verified.
       tags:
         - "User Profile"
       summary: "Guest sign in"
@@ -71,7 +86,9 @@ paths:
         '400':
           description: Business has not been verified
 
-  /api/profile/{username}/settings/:
+    
+
+  /api/profile/{username}/settings:
     get:
       description: User settings page where they can change their account info.
       tags:
@@ -111,7 +128,7 @@ paths:
       security:
         - bearerAuth: []
 
-  /api/profile/{username}/follow/:
+  /api/profile/{username}/follow:
     patch:
       description: Follow another users posts to display them in your feed.
       tags:
@@ -132,7 +149,7 @@ paths:
       security:
         - bearerAuth: []
 
-  /api/profile/{username}/unfollow/:
+  /api/profile/{username}/unfollow:
     patch:
       description: Follow another users posts to display them in your feed.
       tags:
@@ -172,7 +189,7 @@ paths:
         '400':
           description: No post found
 
-  /api/posts/{id}/edit/:
+  /api/posts/{id}/edit:
     get:
       description: Grabs the post for the user to edit and populates the text boxes.
       tags:
@@ -217,7 +234,7 @@ paths:
       security:
         - bearerAuth: []
 
-  /api/new_post/:
+  /api/posts/new_post:
     post:
       description: Creates a new post if the user is logged in.
       tags:
@@ -233,12 +250,28 @@ paths:
       security:
         - bearerAuth: []
 
-  /api/posts/{id}/delete_post/:
+  /api/posts/{id}/delete_post:
     delete:
       description: Deletes a new post if the user is logged in.
       tags:
         - "Posts"
       summary: "Delete post"
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not authorized
+        '403':
+          description: You do not own this content
+      security:
+        - bearerAuth: []
+  
+  /api/posts/{id}/comment:
+    post:
+      description: Adds a comment to the post from the logged in user.
+      tags:
+        - "Posts"
+      summary: "Add comment"
       responses:
         '200':
           description: OK

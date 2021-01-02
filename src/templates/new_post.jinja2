@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="login-page">
+            <form method="POST" action="" enctype="multipart/form-data" class="login-form">
+                <h2>New Post</h2>
+                {{ form.hidden_tag() }}
+                {% if form.content.errors %}
+                    {{ form.content(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="form") }}
+                {% endif %}
+
+                {% if form.image.errors %}
+                    {{ form.image(class="form") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.image.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.image(class="form") }}
+                {% endif %}
+              {{ form.submit(class="form-button") }}
+            </form>
+          </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,4 +1,4 @@
-from run import db
+from src import db
 from datetime import datetime
 from src.models import User, Posts
 
