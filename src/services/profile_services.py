@@ -6,6 +6,11 @@ import os
 
 
 def get_profile_svc(username):
+	"""
+	Returns a users profile with posts
+	:param username:
+	:return: user, post query object
+	"""
 	user = get_user_by_username(username)
 	if user is None:
 		return False, False
@@ -14,6 +19,12 @@ def get_profile_svc(username):
 
 
 def sign_in_svc(username, **kwargs):
+	"""
+	Sign's a user in a business
+	:param username:
+	:param kwargs:
+	:return: None or sign_in query object
+	"""
 	user = get_user_by_username(username)
 	if user is None:
 		return None
@@ -36,6 +47,13 @@ def sign_in_svc(username, **kwargs):
 
 
 def save_profile_settings_svc(user_id, profile_picture=None, **kwargs):
+	"""
+	Updates user profile settings.
+	:param user_id:
+	:param profile_picture:
+	:param kwargs:
+	:return:
+	"""
 	user = get_user_by_id(user_id)
 	user.email = kwargs["email"]
 	user.username = kwargs["username"]
@@ -52,6 +70,12 @@ def save_profile_settings_svc(user_id, profile_picture=None, **kwargs):
 
 
 def follow_svc(current_user, username):
+	"""
+	Function for following another user
+	:param current_user:
+	:param username:
+	:return: logged_user and follow_user query object
+	"""
 	logged_user = get_user_by_id(current_user)
 	follow_user = get_user_by_username(username)
 	logged_user.follow(follow_user)
@@ -59,6 +83,12 @@ def follow_svc(current_user, username):
 
 
 def unfollow_svc(current_user, username):
+	"""
+	Function for un-following another user
+	:param current_user:
+	:param username:
+	:return: logged_user and follow_user query object
+	"""
 	logged_user = get_user_by_id(current_user)
 	follow_user = get_user_by_username(username)
 	logged_user.unfollow(follow_user)
@@ -66,6 +96,12 @@ def unfollow_svc(current_user, username):
 
 
 def business_register_svc(user_id, **kwargs):
+	"""
+	Adds a business relationship onto a user table
+	:param user_id:
+	:param kwargs:
+	:return:
+	"""
 	business = Business()
 	business.email = kwargs["email"]
 	business.business_name = kwargs["business_name"]

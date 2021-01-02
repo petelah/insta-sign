@@ -1,15 +1,18 @@
 from src.forms import LoginForm, RegistrationForm
-from flask import Blueprint, request, jsonify, abort, render_template, current_app, redirect, url_for
-from flask_login import login_user, current_user, logout_user, login_required
-from flask_jwt_extended import jwt_required, get_jwt_identity, jwt_optional, create_access_token
-from src.services import get_user_by_id, login_user_svc, register_user_svc
-from datetime import timedelta
+from flask import Blueprint, abort, render_template, redirect, url_for
+from flask_login import login_user, current_user, logout_user
+from src.services import login_user_svc, register_user_svc
+from src import bcrypt
 
 auth_view = Blueprint('auth_view', __name__, url_prefix="/")
 
 
 @auth_view.route("/login", methods=["GET", "POST"])
 def login():
+	"""
+	Login route that authenticates a user with the database using hashed passwords.
+	:return: render_template object
+	"""
 	if current_user.is_authenticated:
 		return redirect(url_for('main_view.profile', username=current_user.username))
 	form = LoginForm()
@@ -27,6 +30,10 @@ def login():
 
 @auth_view.route("/register", methods=["GET", "POST"])
 def register_page():
+	"""
+	Allows users to register for the app
+	:return: render_template object
+	"""
 	form = RegistrationForm()
 	if current_user.is_authenticated:
 		return redirect(url_for('main_view.profile', username=current_user.username))
@@ -45,5 +52,9 @@ def register_page():
 
 @auth_view.route("/logout", methods=["GET", "POST"])
 def logout():
+	"""
+	Logout route.
+	:return:
+	"""
 	logout_user()
 	return redirect(url_for('auth_view.login'))

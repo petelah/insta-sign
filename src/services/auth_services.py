@@ -4,6 +4,11 @@ from src.services.helpers import get_user_by_email
 
 
 def register_user_svc(**kwargs):
+	"""
+	Register new user service
+	:param kwargs:
+	:return: user query object
+	"""
 	user = get_user_by_email(kwargs["email"])
 
 	if user:
@@ -22,6 +27,12 @@ def register_user_svc(**kwargs):
 
 
 def login_user_svc(**kwargs):
+	"""
+	User authentication service.
+	Checks the given password against the stored hash.
+	:param kwargs:
+	:return: user query object
+	"""
 	user = get_user_by_email(kwargs["email"])
 	if not user or not bcrypt.check_password_hash(user.password, kwargs["password"]):
 		return None

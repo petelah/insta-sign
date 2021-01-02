@@ -3,7 +3,7 @@ from src.schemas.PostSchema import posts_schema
 from src.schemas.SignInSchema import SignIn_schema
 from src.models.User import User
 from src.models.Posts import Posts
-from flask import Blueprint, request, jsonify, abort, redirect, url_for
+from flask import Blueprint, request, jsonify, redirect, url_for
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from src.services import get_profile_svc, sign_in_svc, save_profile_settings_svc, follow_svc, get_user_by_username
 

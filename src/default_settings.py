@@ -3,11 +3,6 @@ import os
 
 class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    JWT_SECRET_KEY = "duck"
-    SECRET_KEY = "duck"
-    S3_FOLDER = 'src/static/images/dummy'
-    TEST_PASSWORD = '123456'
-
     MAX_CONTENT_LENGTH = 1 * 1024 * 1024
 
     @property
@@ -46,6 +41,41 @@ class Config(object):
 
         return value
 
+    @property
+    def JWT_SECRET_KEY(self):
+        value = os.environ.get("JWT_SECRET_KEY")
+
+        if not value:
+            raise ValueError("JWT_SECRET_KEY is not set")
+
+        return value
+
+    @property
+    def SECRET_KEY(self):
+        value = os.environ.get("SECRET_KEY")
+
+        if not value:
+            raise ValueError("SECRET_KEY is not set")
+
+        return value
+
+    @property
+    def S3_FOLDER(self):
+        value = os.environ.get("S3_FOLDER")
+
+        if not value:
+            raise ValueError("S3_FOLDER is not set")
+
+        return value
+
+    @property
+    def TEST_PASSWORD(self):
+        value = os.environ.get("TEST_PASSWORD")
+
+        if not value:
+            raise ValueError("TEST_PASSWORD is not set")
+
+        return value
 
 
 class DevelopmentConfig(Config):

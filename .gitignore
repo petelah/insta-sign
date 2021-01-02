@@ -11,3 +11,4 @@ src/migrations
 docs/Insta-Sign.bmpr
 .aws
 src/instasign.db
+src/instsign.db

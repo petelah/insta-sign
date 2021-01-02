@@ -1,7 +1,10 @@
 from src import db
+from src.default_settings import Config
 from flask import Blueprint
 
 db_commands = Blueprint("db-custom", __name__)
+
+TEST_PASSWORD = Config.TEST_PASSWORD
 
 
 @db_commands.cli.command("create")
@@ -42,7 +45,7 @@ def seed_db():
         user.username = f"test{i}"
         user.f_name = faker.first_name()
         user.l_name = faker.last_name()
-        user.password = bcrypt.generate_password_hash("123456").decode("utf-8")
+        user.password = bcrypt.generate_password_hash(TEST_PASSWORD).decode("utf-8")
 
         # Add businesses
         business = Business()

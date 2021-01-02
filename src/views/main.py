@@ -41,24 +41,3 @@ def profile(username):
 		logged_user=logged_user
 	)
 
-
-@main_view.route("/profile_picture")
-def get_profile_pic():
-	"""
-
-	:return:
-	"""
-	filename = request.args.get("filename")
-	try:
-		return send_from_directory(current_app.config["S3_FOLDER"], filename=filename, as_attachment=False)
-	except FileNotFoundError:
-		abort(404)
-
-
-@main_view.route("/post_picture")
-def get_post_pic():
-	filename = request.args.get("filename")
-	try:
-		return send_from_directory(current_app.config["S3_FOLDER"], filename=filename, as_attachment=False)
-	except FileNotFoundError:
-		abort(404)
