@@ -58,6 +58,7 @@
     <li><a href="#wireframes">Wireframes & Workflow</a></li>
     <li><a href="#deployment">Deployment</a></li>
     <li><a href="#arch">Cloud Architecture</a></li>
+    <li><a href="#reports">Reports/a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -90,9 +91,13 @@ in docs/ =).
 
 ### Built With
 
-* [Python]()
-* [Flask]()
-* [Bootstrap]()
+* [Python]() - Coding language
+* [Flask]() - The framework that allows interaction with data through http
+* [Jinja]() - Templating language for interacting with the framework
+* [WTForms]() - Form creating framework which interacts directly with the ORM and adds CSRF protection
+* [SQLAlchemy]() - The ORM that interacts with python and the database
+* [SQLite]() - A lightweight filesystem based db used for prototyping
+* [Postgres]() - An open source production level database, this is used on our EC2 instance
 
 
 <div id="getting-started"></div>
@@ -232,9 +237,20 @@ proof of concept purposes. However in the real world this would integrate straig
 
 ![ERD](docs/images/cloudarch.png)
 
+
+
+
+<!-- REPORTS -->
+<div id="reports"></div>
+## Reports
+
+You can find detailed reports on both professional obligations and security concerns here:
+[Reports](docs/reports.md)
+
+
+
 <!-- LICENSE -->
 <div id="license"></div>
-
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
