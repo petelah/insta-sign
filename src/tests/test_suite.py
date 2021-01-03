@@ -1,7 +1,8 @@
 import unittest
-from main import create_app, db
+from src import create_app, db
 
-class TestBooks(unittest.TestCase):
+
+class TestSuite(unittest.TestCase):
     @classmethod
     def setUp(cls):
         cls.app = create_app()
@@ -11,7 +12,8 @@ class TestBooks(unittest.TestCase):
         db.create_all()
 
         runner = cls.app.test_cli_runner()
-        runner.invoke(args=["db", "seed"])
+        runner.invoke(args=["db-custom", "create"])
+        runner.invoke(args=["db-custom", "seed"])
 
     @classmethod
     def tearDown(cls):
