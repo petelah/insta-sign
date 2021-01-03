@@ -58,7 +58,7 @@
     <li><a href="#wireframes">Wireframes & Workflow</a></li>
     <li><a href="#deployment">Deployment</a></li>
     <li><a href="#arch">Cloud Architecture</a></li>
-    <li><a href="#reports">Reports/a></li>
+    <li><a href="#reports">Reports</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
