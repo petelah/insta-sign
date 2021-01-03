@@ -36,6 +36,9 @@ def seed_db():
     businesses = []
     posts = []
 
+    if not TEST_PASSWORD:
+        raise ValueError('TEST_PASSWORD not provided.')
+
     for i in range(5):
 
         # Add users
@@ -45,7 +48,7 @@ def seed_db():
         user.username = f"test{i}"
         user.f_name = faker.first_name()
         user.l_name = faker.last_name()
-        user.password = bcrypt.generate_password_hash(TEST_PASSWORD).decode("utf-8")
+        user.password = bcrypt.generate_password_hash(f"{TEST_PASSWORD}").decode("utf-8")
 
         # Add businesses
         business = Business()
