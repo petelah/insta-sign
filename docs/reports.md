@@ -74,7 +74,7 @@ storing a backup of previous migrations for easy roll back.
 moving from local to the cloud this tool will move everything safe and securely over SSH.
 
 Project management is managed through GitHub boards so any any person or teams working on the project have immediate access 
-to the kanban style board.
+to the [kanban](images/trello) style board.
 
 
 - ethical obligations: ensuring that the application conforms with ethical codes of conduct approved by industry.
